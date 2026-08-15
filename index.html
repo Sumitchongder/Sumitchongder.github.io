@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sumit Tapas Chongder — Quantum Computing Researcher</title>
+<meta name="description" content="Sumit Tapas Chongder — Quantum Technologies researcher at IIT Jodhpur. Quantum error correction, QRNG, QKD, and hardware-aware quantum compilation.">
+<meta name="theme-color" content="#090c13">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+<defs>
+
+<symbol id="icon-atom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)"/></g></symbol>
+
+<symbol id="icon-code" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/></g></symbol>
+
+<symbol id="icon-cpu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="1.5"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l1.8 1.8M17.2 17.2L19 19M19 5l-1.8 1.8M6.8 17.2L5 19"/></g></symbol>
+
+<symbol id="icon-cloud" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M7 18a4.5 4.5 0 0 1-.4-8.98A5.5 5.5 0 0 1 17.2 8.1 4 4 0 0 1 17 18H7Z"/></symbol>
+
+<symbol id="icon-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></g></symbol>
+
+<symbol id="icon-flask" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M9 2h6M10 2v6.5L4.5 18a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 8.5V2M7 15h10"/></symbol>
+
+<symbol id="icon-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></g></symbol>
+
+<symbol id="icon-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2Z"/></symbol>
+
+<symbol id="icon-linkedin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M7.5 10.5v6M7.5 7.7v.1M11.5 16.5v-3.4c0-1.4 1-2.4 2.2-2.4 1.2 0 2 .9 2 2.4v3.4"/></g></symbol>
+
+<symbol id="icon-github" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.4c0-1 .1-1.4-.5-2 2.7-.3 5.5-1.3 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.9 5.4 3.2 5.4 3.2a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.6c0 4.7 2.8 5.7 5.5 6-.4.4-.4 1-.4 1.6V21"/></symbol>
+
+<symbol id="icon-scholar" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="m12 3 10 6-10 6L2 9l10-6ZM6 11.5V17c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5"/></symbol>
+
+<symbol id="icon-download" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4.5-4.5M12 15 7.5 10.5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></g></symbol>
+
+<symbol id="icon-award" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="m8.5 13.5-1.7 6.5L12 17.5l5.2 2.5-1.7-6.5"/></g></symbol>
+
+<symbol id="icon-external" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4 10 14"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></g></symbol>
+
+<symbol id="icon-grad" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="m2 9 10-5 10 5-10 5L2 9Zm5 3v5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-5"/></symbol>
+
+<symbol id="icon-briefcase" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8 7.5V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1.5M3 12.5h18"/></g></symbol>
+
+</defs>
+</svg>
+
+
+<nav id="navbar">
+  <a href="#top" class="nav-mark"><span class="nav-mark-ring"></span>SC</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#ip">IP &amp; Patents</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<header id="top" class="hero">
+  <canvas id="waveCanvas"></canvas>
+  <div class="hero-orb orb-1"></div>
+  <div class="hero-orb orb-2"></div>
+  <div class="hero-inner">
+
+    <div class="avatar-wrap">
+      <div class="avatar-ring"></div>
+      <img class="avatar" src="assets/sumit-photo.jpg" alt="Sumit Tapas Chongder">
+      <span class="status-dot" title="Open to opportunities"></span>
+    </div>
+
+    <p class="eyebrow">|ψ⟩ = α|0⟩ + β|1⟩ — Quantum Technologies, IIT Jodhpur</p>
+    <h1>Sumit Tapas<br><span class="accent">Chongder</span></h1>
+    <p class="role-line">Quantum Engineer <span class="dot-sep">·</span> IBM Qiskit Advocate <span class="dot-sep">·</span> M.Tech Quantum Technologies, IIT Jodhpur</p>
+    <p class="hero-sub">I engineer fault-tolerant quantum systems — from hardware-aware error correction and neural decoders to QRNG entropy pipelines and post-quantum cryptography. Open to Quantum Engineering &amp; QPU software roles.</p>
+
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary magnetic">Explore My Work</a>
+      <a href="assets/Sumit_Tapas_Chongder_CV.pdf" class="btn btn-ghost magnetic" download><svg class="icon" width="16" height="16"><use href="#icon-download"/></svg>Download CV</a>
+    </div>
+
+    <div class="hero-links">
+      <a href="https://github.com/Sumitchongder" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon" width="18" height="18"><use href="#icon-github"/></svg><span>GitHub</span></a>
+      <a href="https://www.linkedin.com/in/sumit-chongder/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" width="18" height="18"><use href="#icon-linkedin"/></svg><span>LinkedIn</span></a>
+      <a href="https://scholar.google.com/citations?user=2d91JncAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><svg class="icon" width="18" height="18"><use href="#icon-scholar"/></svg><span>Scholar</span></a>
+      <a href="mailto:sumitchongder960@gmail.com" aria-label="Email"><svg class="icon" width="18" height="18"><use href="#icon-mail"/></svg><span>Email</span></a>
+    </div>
+
+    <div class="hero-badges">
+      <span class="hero-badge">🏆 1st Place — Qiskit Fall Fest 2025</span>
+      <span class="hero-badge">🌍 Top 46 Worldwide — MIT iQuHack 2026</span>
+      <span class="hero-badge">📜 11 Filed IP Registrations</span>
+    </div>
+
+  </div>
+  <div class="scroll-cue"><span></span>scroll</div>
+</header>
+
+<main>
+
+<section id="about" class="section">
+  <div class="section-head">
+    <svg class="icon section-icon" width="20" height="20"><use href="#icon-atom"/></svg>
+    <span class="tag">01</span>
+    <h2>About</h2>
+  </div>
+  <div class="about-grid">
+    <p class="lead">I'm a Master of Technology candidate in <strong>Quantum Technologies at IIT Jodhpur</strong> (CGPA 9.25, rank holder), working across quantum error correction, quantum random number generation, and hardware-aware compilation for early fault-tolerant systems. My research sits at the intersection of quantum information theory and applied machine learning — building calibrated, latency-constrained systems that hold up under real device noise, not just simulation.</p>
+    <p class="lead">I'm currently a <strong>Quantum Engineer at QNu Labs</strong>, building ML pipelines to attribute and benchmark randomness sources (PRNG/TRNG/QRNG), and a <strong>Mentor with QWorld's QIntern 2026</strong> program on quantum federated unlearning. I previously mentored quantum-error-correction teams for the <strong>Pan-African Quantum Challenge</strong>, and hold 11 filed Indian IP registrations spanning post-quantum cryptography, QKD, quantum hyperspectral imaging, and federated learning. I'm a selected <strong>IBM Qiskit Advocate</strong> and served as a mentor in the IBM Quantum Global Summer School 2026.</p>
+    <div class="stat-row">
+      <div class="stat"><svg class="icon stat-icon" width="22" height="22"><use href="#icon-flask"/></svg><span class="stat-num" data-count="6">0</span><span class="stat-label">Publications &amp; Preprints</span></div>
+      <div class="stat"><svg class="icon stat-icon" width="22" height="22"><use href="#icon-lock"/></svg><span class="stat-num" data-count="11">0</span><span class="stat-label">Filed IP Registrations</span></div>
+      <div class="stat"><svg class="icon stat-icon" width="22" height="22"><use href="#icon-grad"/></svg><span class="stat-num" data-count="9.25" data-decimal="true">0</span><span class="stat-label">M.Tech CGPA</span></div>
+      <div class="stat"><svg class="icon stat-icon" width="22" height="22"><use href="#icon-github"/></svg><span class="stat-num" data-count="25">0</span><span class="stat-label">Public GitHub Repositories</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="section">
+  <div class="section-head">
+    <svg class="icon section-icon" width="20" height="20"><use href="#icon-grad"/></svg>
+    <span class="tag">02</span>
+    <h2>Education</h2>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-meta"><span class="tl-date">Jul 2025 – Jun 2027</span></div>
+      <div class="tl-body">
+        <span class="org-badge">IITJ</span><h3>M.Tech, Quantum Technologies <span class="tl-org">· Indian Institute of Technology, Jodhpur</span></h3>
+        <ul><li>CGPA 9.25 — Rank Holder</li></ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-meta"><span class="tl-date">Oct 2020 – Oct 2024</span></div>
+      <div class="tl-body">
+        <span class="org-badge">MIT</span><h3>B.Tech, Computer Science &amp; Engineering <span class="tl-org">· MIT Art, Design and Technology University</span></h3>
+        <ul><li>CGPA 8.92 — Rank Holder</li></ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-meta"><span class="tl-date">2018 – 2020</span></div>
+      <div class="tl-body">
+        <span class="org-badge">PJC</span><h3>Higher Secondary (Science) <span class="tl-org">· Pace Junior Science College, Maharashtra</span></h3>
+        <ul><li>81.69%</li></ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-meta"><span class="tl-date">— 2018</span></div>
+      <div class="tl-body">
+        <span class="org-badge">SFH</span><h3>Secondary School <span class="tl-org">· St. Francis High School, Maharashtra</span></h3>
+        <ul><li>94% — Rank Holder</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="section">
+  <div class="section-head">
+    <svg class="icon section-icon" width="20" height="20"><use href="#icon-briefcase"/></svg>
+    <span class="tag">03</span>
+    <h2>Experience</h2>
+  </div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-meta"><span class="tl-date">Jun 2026 – Present</span><span class="tl-loc">Remote</span></div>
+      <div class="tl-body">
+        <span class="org-badge">QW</span><h3>Mentor <span class="tl-org">· QWorld, QIntern 2026</span></h3>
+        <ul>
+          <li>Mentoring project qi26_22, "Dynamic Entanglement-Weighted Pruning for QFL-Based Supply Chain Risk Unlearning," combining Quantum Federated Learning with machine unlearning.</li>
+          <li>Guiding use of Quantum Fisher Information for parameter sensitivity and entanglement-weighted gate pruning to balance privacy, accuracy, and efficiency.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-meta"><span class="tl-date">May 2026 – Present</span><span class="tl-loc">Remote</span></div>
+      <div class="tl-body">
+        <span class="org-badge">QNu</span><h3>Quantum Engineer, Summer Intern <span class="tl-org">· QNu Labs</span></h3>
+        <ul>
+          <li>Built a hierarchical ML framework for randomness-source attribution, classifying PRNG vs. TRNG/QRNG binary streams across a 4.15&nbsp;GB multi-source dataset validated with NIST SP 800-22/90B, Dieharder, and ENT.</li>
+          <li>Engineered a 64-dimensional statistical feature space (entropy, spectral, compression, autocorrelation, distributional) and an isotonic-calibrated CatBoost/XGBoost/LightGBM ensemble reaching 81.21% mean attribution confidence.</li>
+          <li>Designed the Randomness Quality Index (RQI), a composite benchmarking metric scored across 37 random number generators, with leading QRNGs reaching up to 97.48.</li>
+          <li>Applied SHAP-based explainability, identifying bz2 compression ratio and byte-transition entropy as the strongest signals separating physical from algorithmic randomness.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-meta"><span class="tl-date">Dec 2025 – Jan 2026</span><span class="tl-loc">Remote</span></div>
+      <div class="tl-body">
+        <span class="org-badge">AQC</span><h3>Mentor, Quantum Error Correction &amp; Mitigation <span class="tl-org">· Africa Quantum Consortium</span></h3>
+        <ul>
+          <li>Mentored 5 interns in the Pan-African Quantum Challenge on automated QEC code construction, CUDA-Q simulation, and ML decoders for topological, stabilizer, and QLDPC codes.</li>
+          <li>Co-developed a two-tier framework routing 3.3–6.2% of surface-code (d ∈ {3,5,7,11}) syndromes to PyMatching MWPM, reaching 99.81% decoding accuracy under fault-tolerant circuit-level noise.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-meta"><span class="tl-date">Sep 2023 – Nov 2023</span><span class="tl-loc">Pune · Hybrid</span></div>
+      <div class="tl-body">
+        <span class="org-badge">FTN</span><h3>Network Security Associate Intern <span class="tl-org">· Fortinet</span></h3>
+        <ul>
+          <li>Applied Fortinet Certified Associate/Fundamentals cybersecurity training to analyze traffic, detect threats, and enforce multi-layer security policy across enterprise Fortinet appliances.</li>
+          <li>Investigated and responded to security incidents using Fortinet's detection and response methodology, cutting mitigation time by 35%.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-meta"><span class="tl-date">May 2023 – Jul 2023</span><span class="tl-loc">Pune · Hybrid</span></div>
+      <div class="tl-body">
+        <span class="org-badge">AWS</span><h3>Cloud Associate Intern <span class="tl-org">· Amazon Web Services (AWS)</span></h3>
+        <ul>
+          <li>Designed secure, scalable AWS infrastructure (EC2, S3, VPC) achieving 99.99% high availability with strict multi-layer network isolation.</li>
+          <li>Built automated CI/CD pipelines via CodePipeline, CloudFormation, and Lambda, cutting deployment time by 40%.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-meta"><span class="tl-date">Feb 2023 – May 2023</span><span class="tl-loc">Pune · On-site</span></div>
+      <div class="tl-body">
+        <span class="org-badge">MSFT</span><h3>Software Engineer Intern <span class="tl-org">· Microsoft, Future Ready Talent</span></h3>
+        <ul>
+          <li>Built and deployed responsive web apps on Azure Static Web Apps and App Services, integrating Bot &amp; Cognitive Services for 99.9% availability.</li>
+          <li>Designed Azure Storage architectures and automated CI/CD with Azure Monitor and Application Insights, reducing downtime by 25%.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-meta"><span class="tl-date">Jan 2023 – Mar 2023</span><span class="tl-loc">Remote</span></div>
+      <div class="tl-body">
+        <span class="org-badge">IBM</span><h3>Data Analytics &amp; AI Intern <span class="tl-org">· IBM</span></h3>
+        <ul>
+          <li>Built predictive models and interactive dashboards (IBM Cognos, Tableau) for data-driven decision-making.</li>
+          <li>Trained ML models with IBM Watson for predictive analytics and NLP, and integrated them into business workflows via APIs. Named Best Intern of the Month at CodeClause during the same period for a parallel Python development internship.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="research" class="section">
+  <div class="section-head">
+    <svg class="icon section-icon" width="20" height="20"><use href="#icon-flask"/></svg>
+    <span class="tag">04</span>
+    <h2>Publications &amp; Preprints</h2>
+  </div>
+  <div class="pub-list">
+
+    <a class="pub-card featured" href="https://arxiv.org/abs/2607.16275" target="_blank" rel="noopener">
+      <svg class="icon pub-icon" width="22" height="22"><use href="#icon-flask"/></svg>
+      <div class="pub-text">
+        <span class="pub-venue">arXiv:2607.16275 · quant-ph · 2026</span>
+        <h3>QR-SPPS: Quantum-Native Retail Shock Propagation and Policy Stress Simulator</h3>
+        <span class="pub-link">40-qubit Ising Hamiltonian, VQE cascade-failure detection, ADAPT-VQE policy ranking, DOS-QPE tail-risk</span>
+      </div>
+      <svg class="icon pub-arrow" width="18" height="18"><use href="#icon-external"/></svg>
+    </a>
+
+    <a class="pub-card" href="https://doi.org/10.48550/arXiv.2607.05814" target="_blank" rel="noopener">
+      <svg class="icon pub-icon" width="22" height="22"><use href="#icon-flask"/></svg>
+      <div class="pub-text">
+        <span class="pub-venue">arXiv:2607.05814 · quant-ph · 2026</span>
+        <h3>Latency-Constrained Hardware-Aware Quantum Error Correction Co-Design with Adaptive Confidence-Gated Neural Decoding for the Rotated Surface Code</h3>
+        <span class="pub-link">99.81% logical accuracy routing just 3.3–6.2% of syndromes to MWPM refinement</span>
+      </div>
+      <svg class="icon pub-arrow" width="18" height="18"><use href="#icon-external"/></svg>
+    </a>
+
+    <a class="pub-card" href="https://doi.org/10.48550/arXiv.2606.07666" target="_blank" rel="noopener">
+      <svg class="icon pub-icon" width="22" height="22"><use href="#icon-flask"/></svg>
+      <div class="pub-text">
+        <span class="pub-venue">arXiv:2606.07666 · quant-ph · 2026 · Accepted, QUANCOM 2026 (Trento, Italy)</span>
+        <h3>Hardware-Aware Low-Latency Quantum Compilation with Data-Driven Lightweight Error Detection for Early Fault-Tolerant Systems</h3>
+        <span class="pub-link">Up to 68% improvement in algorithmic success probability vs. SABRE baseline · Springer proceedings</span>
+      </div>
+      <svg class="icon pub-arrow" width="18" height="18"><use href="#icon-external"/></svg>
+    </a>
+
+    <a class="pub-card" href="https://doi.org/10.48550/arXiv.2604.00035" target="_blank" rel="noopener">
+      <svg class="icon pub-icon" width="22" height="22"><use href="#icon-flask"/></svg>
+      <div class="pub-text">
+        <span class="pub-venue">arXiv:2604.00035 · quant-ph · 2026</span>
+        <h3>QR-SPPS: Quantum-Native Retail Supply Chain Risk Simulation via VQE, ADAPT-VQE Counterfactual Policy Ranking, and DOS-QPE Boltzmann Tail Risk Quantification</h3>
+        <span class="pub-link">First ADAPT-VQE application to counterfactual policy ranking (287× speedup)</span>
+      </div>
+      <svg class="icon pub-arrow" width="18" height="18"><use href="#icon-external"/></svg>
+    </a>
+
+    <a class="pub-card" href="https://doi.org/10.7759/s44389-026-00028-0" target="_blank" rel="noopener">
+      <svg class="icon pub-icon" width="22" height="22"><use href="#icon-flask"/></svg>
+      <div class="pub-text">
+        <span class="pub-venue">Cureus Journal of Computer Science · 2026</span>
+        <h3>Evaluation Framework for Centralized and Decentralized Aggregation Algorithm in Federated Systems</h3>
+        <span class="pub-link">DOI: 10.7759/s44389-026-00028-0</span>
+      </div>
+      <svg class="icon pub-arrow" width="18" height="18"><use href="#icon-external"/></svg>
+    </a>
+
+    <a class="pub-card" href="https://scholar.google.com/citations?user=2d91JncAAAAJ&hl=en" target="_blank" rel="noopener">
+      <svg class="icon pub-icon" width="22" height="22"><use href="#icon-flask"/></svg>
+      <div class="pub-text">
+        <span class="pub-venue">IJARSCT · 2024</span>
+        <h3>FEDRETAIL: A Framework for Distributed Retail Data Analysis and Learning Toward E-commerce 5.0</h3>
+        <span class="pub-link">MIT ADT University, Dept. of Computer Science and Engineering</span>
+      </div>
+      <svg class="icon pub-arrow" width="18" height="18"><use href="#icon-external"/></svg>
+    </a>
+
+  </div>
+  <a class="scholar-link" href="https://scholar.google.com/citations?user=2d91JncAAAAJ&hl=en" target="_blank" rel="noopener">Full record on Google Scholar ↗</a>
+</section>
+
+<section id="projects" class="section">
+  <div class="section-head">
+    <svg class="icon section-icon" width="20" height="20"><use href="#icon-code"/></svg>
+    <span class="tag">05</span>
+    <h2>Projects</h2>
+    <p class="section-sub">Selected from 25 public repositories on GitHub</p>
+  </div>
+  <div class="project-grid">
+
+    <a class="project-card" href="https://github.com/Sumitchongder/QR-SPPS" target="_blank" rel="noopener">
+      <div class="project-top"><span class="project-tag">HPC · VQE</span><svg class="icon project-ext" width="15" height="15"><use href="#icon-external"/></svg></div>
+      <h3>QR-SPPS — Quantum Supply Chain Risk Simulator</h3>
+      <p>40-qubit Ising Hamiltonian on A64FX supercomputers via QARP/MPI for zero-error VQE convergence; ADAPT-VQE and DOS-QPE for real-time supply-chain interventions. Fujitsu Quantum Challenge 2026.</p>
+    </a>
+
+    <a class="project-card" href="https://github.com/Sumitchongder/quantum-hw-aware-pipeline" target="_blank" rel="noopener">
+      <div class="project-top"><span class="project-tag">Compilation · QEC</span><svg class="icon project-ext" width="15" height="15"><use href="#icon-external"/></svg></div>
+      <h3>Hardware-Aware Quantum Compilation Pipeline</h3>
+      <p>Joint optimization of qubit mapping, SWAP insertion, and syndrome placement for early fault-tolerant systems — up to 68% improvement in algorithmic success probability vs. SABRE.</p>
+    </a>
+
+    <a class="project-card" href="https://github.com/Sumitchongder/adaptive-qec-decoder" target="_blank" rel="noopener">
+      <div class="project-top"><span class="project-tag">Neural Decoding</span><svg class="icon project-ext" width="15" height="15"><use href="#icon-external"/></svg></div>
+      <h3>Adaptive QEC Decoder</h3>
+      <p>Confidence-gated neural + MWPM decoding framework for latency-constrained rotated surface-code error correction, reaching 99.81% logical accuracy.</p>
+    </a>
+
+    <a class="project-card" href="https://github.com/Sumitchongder/Analytical-BB84-QKD-Engine" target="_blank" rel="noopener">
+      <div class="project-top"><span class="project-tag">QKD · Security</span><svg class="icon project-ext" width="15" height="15"><use href="#icon-external"/></svg></div>
+      <h3>Analytical BB84 QKD Engine</h3>
+      <p>Dual-backend Qiskit &amp; Streamlit QKD simulator with vectorized probability models, multi-strategy eavesdropping-detection dashboards, and automated privacy amplification under an 11% QBER abort threshold. Qiskit Fall Fest Winner.</p>
+    </a>
+
+    <a class="project-card" href="https://github.com/Sumitchongder/Quantum-Resistant-Module-Lattice-Cryptography" target="_blank" rel="noopener">
+      <div class="project-top"><span class="project-tag">Post-Quantum Crypto</span><svg class="icon project-ext" width="15" height="15"><use href="#icon-external"/></svg></div>
+      <h3>Quantum-Resistant Module Lattice Cryptography</h3>
+      <p>Crypto-agile Rust wallets (PQ-BANK) integrating Kyber-1024 KEM, Dilithium5 signatures, and XChaCha20-Poly1305 symmetric envelopes for tamper-proof, quantum-safe transaction verification.</p>
+    </a>
+
+    <a class="project-card" href="https://github.com/Sumitchongder/Quantum-Hyperspectral-Imaging" target="_blank" rel="noopener">
+      <div class="project-top"><span class="project-tag">QML · Imaging</span><svg class="icon project-ext" width="15" height="15"><use href="#icon-external"/></svg></div>
+      <h3>Quantum Hyperspectral Imaging (Q-HSI)</h3>
+      <p>Hybrid CNN-VQC ensemble in PennyLane for benign/malignant skin-lesion classification, achieving 83.5% diagnostic accuracy at 13× faster quantum training throughput.</p>
+    </a>
+
+    <a class="project-card" href="https://github.com/Sumitchongder/Quantum-Phase-Space-Simulator" target="_blank" rel="noopener">
+      <div class="project-top"><span class="project-tag">Continuous-Variable QI</span><svg class="icon project-ext" width="15" height="15"><use href="#icon-external"/></svg></div>
+      <h3>Quantum Phase Space Simulator</h3>
+      <p>Interactive dashboard for CV quantum information — Wigner functions, density matrices, Husimi Q, GBS, and CV-QML across 8 quantum states using QuTiP, Strawberry Fields, and PennyLane, validated on IIT Jodhpur HPC.</p>
+    </a>
+
+    <a class="project-card" href="https://github.com/Sumitchongder/Quantum-Secret-Sharing-Simulator" target="_blank" rel="noopener">
+      <div class="project-top"><span class="project-tag">Quantum Protocols</span><svg class="icon project-ext" width="15" height="15"><use href="#icon-external"/></svg></div>
+      <h3>Quantum Secret Sharing Simulator</h3>
+      <p>Interactive simulation of the GHZ-state Quantum Secret Sharing protocol built with Streamlit, QuTiP, Qiskit, and Plotly — deployed live.</p>
+    </a>
+
+    <a class="project-card" href="https://github.com/Sumitchongder/dew-p-qfl-unlearning" target="_blank" rel="noopener">
+      <div class="project-top"><span class="project-tag">QFL · Privacy</span><svg class="icon project-ext" width="15" height="15"><use href="#icon-external"/></svg></div>
+      <h3>Dynamic Entanglement-Weighted Pruning for QFL Unlearning</h3>
+      <p>Quantum Federated Learning combined with machine unlearning for supply-chain risk models — Quantum Fisher Information-guided, entanglement-weighted gate pruning to balance privacy, accuracy, and efficiency. QWorld QIntern 2026.</p>
+    </a>
+
+    <a class="project-card" href="https://github.com/Sumitchongder/Hybrid-Quantum-Classical-Algorithms" target="_blank" rel="noopener">
+      <div class="project-top"><span class="project-tag">QAOA · Optimization</span><svg class="icon project-ext" width="15" height="15"><use href="#icon-external"/></svg></div>
+      <h3>Hybrid Quantum-Classical QAOA Framework</h3>
+      <p>GPU-accelerated Qiskit Aer framework benchmarking 12 classical SciPy optimizers for MAX-CUT QAOA, executing deep parameter sweeps across HPC nodes to systematically mitigate local minima.</p>
+    </a>
+
+    <a class="project-card" href="https://github.com/Sumitchongder/Error-Correction-in-B92-QKD-Protocol" target="_blank" rel="noopener">
+      <div class="project-top"><span class="project-tag">QKD · Error Correction</span><svg class="icon project-ext" width="15" height="15"><use href="#icon-external"/></svg></div>
+      <h3>Error Correction in B92 QKD Protocol</h3>
+      <p>Implementation and analysis of the B92 Quantum Key Distribution protocol in Qiskit, followed by classical post-processing for error correction and privacy amplification.</p>
+    </a>
+
+    <a class="project-card" href="https://github.com/Sumitchongder/Decentralized-Federated-Learning" target="_blank" rel="noopener">
+      <div class="project-top"><span class="project-tag">Blockchain · FL</span><svg class="icon project-ext" width="15" height="15"><use href="#icon-external"/></svg></div>
+      <h3>Decentralized Federated Learning</h3>
+      <p>Blockchain-consensus DFL framework with secure aggregation, P2P communication, and post-quantum identity verification for scalable, privacy-first distributed learning.</p>
+    </a>
+
+  </div>
+</section>
+
+<section id="ip" class="section">
+  <div class="section-head">
+    <svg class="icon section-icon" width="20" height="20"><use href="#icon-lock"/></svg>
+    <span class="tag">06</span>
+    <h2>IP &amp; Patents</h2>
+    <p class="section-sub">Government of India — filed &amp; granted copyrights and patents</p>
+  </div>
+  <div class="ip-list">
+    <div class="ip-item">
+      <svg class="icon ip-icon" width="18" height="18"><use href="#icon-lock"/></svg>
+      <h3>System and Method for Quantum Phase Space Simulation of Quantum States</h3>
+      <span class="ip-meta">SW-2026023370 · Issued 22/07/2026</span>
+    </div>
+    <div class="ip-item">
+      <svg class="icon ip-icon" width="18" height="18"><use href="#icon-lock"/></svg>
+      <h3>Quantum Resistant Module Lattice Cryptography System</h3>
+      <span class="ip-meta">SW-2026022888 · Issued 27/05/2026</span>
+    </div>
+    <div class="ip-item">
+      <svg class="icon ip-icon" width="18" height="18"><use href="#icon-lock"/></svg>
+      <h3>Quantum Native Retail Shock Propagation and Policy Stress Simulator</h3>
+      <span class="ip-meta">SW-24574/2026-CO · Filed 25/05/2026</span>
+    </div>
+    <div class="ip-item">
+      <svg class="icon ip-icon" width="18" height="18"><use href="#icon-lock"/></svg>
+      <h3>Analytical BB84 Quantum Key Distribution (QKD) Engine</h3>
+      <span class="ip-meta">SW-2026022477 · Issued 03/03/2026</span>
+    </div>
+    <div class="ip-item">
+      <svg class="icon ip-icon" width="18" height="18"><use href="#icon-lock"/></svg>
+      <h3>Quantum Hyperspectral Imaging (Q-HSI) System</h3>
+      <span class="ip-meta">SW-2026022430 · Issued 27/02/2026</span>
+    </div>
+    <div class="ip-item">
+      <svg class="icon ip-icon" width="18" height="18"><use href="#icon-lock"/></svg>
+      <h3>Evaluation Framework for Centralized and Decentralized Aggregation Algorithms in Federated Systems</h3>
+      <span class="ip-meta">SW-19383/2024 · Issued 04/06/2024</span>
+    </div>
+    <div class="ip-item">
+      <svg class="icon ip-icon" width="18" height="18"><use href="#icon-lock"/></svg>
+      <h3>HyperML: Accelerating AI with Advanced Automation Framework</h3>
+      <span class="ip-meta">SW-19271/2024 · Issued 02/06/2024</span>
+    </div>
+    <div class="ip-item">
+      <svg class="icon ip-icon" width="18" height="18"><use href="#icon-lock"/></svg>
+      <h3>GNN: Graphical Neural Network System</h3>
+      <span class="ip-meta">SW-19268/2024 · Issued 01/06/2024</span>
+    </div>
+    <div class="ip-item">
+      <svg class="icon ip-icon" width="18" height="18"><use href="#icon-lock"/></svg>
+      <h3>DFL: Decentralized Federated Learning System</h3>
+      <span class="ip-meta">SW-19267/2024 · Issued 01/06/2024</span>
+    </div>
+    <!--<div class="ip-item">
+      <svg class="icon ip-icon" width="18" height="18"><use href="#icon-lock"/></svg>
+      <h3>EcoRewards: An Online Platform for Recycling Paper Waste and Earning Rewards</h3>
+      <span class="ip-meta">SW-19420/2024 · Issued 01/06/2024</span>
+    </div>-->
+    <div class="ip-item">
+      <svg class="icon ip-icon" width="18" height="18"><use href="#icon-lock"/></svg>
+      <h3>FEDRETAIL: Federated Retail Data Analysis and Learning Framework</h3>
+      <span class="ip-meta">SW-18815/2024 · Issued 11/03/2024</span>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <div class="section-head">
+    <svg class="icon section-icon" width="20" height="20"><use href="#icon-cpu"/></svg>
+    <span class="tag">07</span>
+    <h2>Skills &amp; Recognition</h2>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-col">
+      <svg class="icon skill-icon" width="24" height="24"><use href="#icon-code"/></svg>
+      <h4>Programming</h4>
+      <div class="pill-row">
+        <span class="pill">Python</span><span class="pill">CUDA-Q</span><span class="pill">Rust</span><span class="pill">C++</span><span class="pill">SQL</span>
+      </div>
+    </div>
+    <div class="skill-col">
+      <svg class="icon skill-icon" width="24" height="24"><use href="#icon-atom"/></svg>
+      <h4>Quantum Frameworks</h4>
+      <div class="pill-row">
+        <span class="pill">Qiskit</span><span class="pill">PennyLane</span><span class="pill">Strawberry Fields</span><span class="pill">QuTiP</span><span class="pill">Cirq</span>
+      </div>
+    </div>
+    <div class="skill-col">
+      <svg class="icon skill-icon" width="24" height="24"><use href="#icon-cpu"/></svg>
+      <h4>Machine Learning</h4>
+      <div class="pill-row">
+        <span class="pill">TensorFlow</span><span class="pill">PyTorch</span><span class="pill">Scikit-learn</span><span class="pill">Keras</span><span class="pill">NumPy</span><span class="pill">Pandas</span>
+      </div>
+    </div>
+    <div class="skill-col">
+      <svg class="icon skill-icon" width="24" height="24"><use href="#icon-cloud"/></svg>
+      <h4>Cloud &amp; DevOps</h4>
+      <div class="pill-row">
+        <span class="pill">AWS EC2/S3/Lambda</span><span class="pill">CodePipeline</span><span class="pill">Azure App Services</span><span class="pill">Azure Storage</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cert-awards">
+    <div class="cert-block">
+      <h4>Licenses &amp; Certifications</h4>
+      <ul>
+        <li>Foundations of Quantum Error Correction — IBM, Jun 2026</li>
+        <li>Integrating Quantum and High-Performance Computing — IBM, Jun 2026</li>
+        <li>General Formulation of Quantum Information — IBM, Jun 2026</li>
+        <li>Quantum Diagonalization Algorithms — IBM, Jun 2026</li>
+        <li>Quantum Chemistry, with Variational Quantum Eigensolver — IBM, Jun 2026</li>
+        <li>Quantum Machine Learning — IBM, Jun 2026</li>
+        <li>Practical Introduction to Quantum-Safe Cryptography — IBM, Jun 2026</li>
+        <li>Variational Algorithm Design — IBM, Jun 2026</li>
+        <li>Quantum Business Foundations — IBM, Jun 2026</li>
+        <li>Basics of Quantum Information — IBM, Mar 2026</li>
+        <li>QSilver — Diploma in Quantum Computing &amp; Programming, QWorld</li>
+        <li>QBronze — Diploma in Quantum Computing &amp; Programming, QWorld</li>
+        <li>AWS Academy Cloud Architecting &amp; Cloud Foundations — AWS</li>
+        <li>Fortinet Certified Associate &amp; Fundamentals — Cybersecurity, FortiGate 7.4 Operator</li>
+      </ul>
+    </div>
+    <div class="cert-block">
+      <h4>Honors, Awards &amp; Hackathons</h4>
+      <ul>
+        <li>1st Place — IBM Qiskit Fall Fest, IIT Jodhpur Hackathon, Nov 2025</li>
+        <li>Top 50 (Rank 46 Worldwide) — MIT iQuHack 2026, BlueQubit × MIT</li>
+        <li>Top 40 (Rank 38 Worldwide) — Yale Peaked Hackathon 2026, BlueQubit × Yale</li>
+        <li>Rank Holder in Academics — MIT ADT University, Pune, Sep 2024</li>
+        <li>Best Intern of the Month — CodeClause, May 2023</li>
+        <li>1st Place, National Project Work Contest — Knowledge Olympiad Society Hyderabad, 2016</li>
+      </ul>
+    </div>
+    <div class="cert-block">
+      <h4>Leadership &amp; Volunteering</h4>
+      <ul>
+        <li>Qiskit Advocate — IBM Quantum, since Apr 2026</li>
+        <li>Mentor — QWorld QIntern 2026</li>
+        <li>Student Member, Quantum Information &amp; Computation Group, IIT Jodhpur</li>
+        <li>Campus Ambassador — Talent Battle, 2023</li>
+        <li>Student Volunteer — HelpAge India &amp; Indian Red Cross Society</li>
+      </ul>
+    </div>
+    <div class="cert-block">
+      <h4>Languages</h4>
+      <ul>
+        <li>Bengali &amp; Hindi — Native/Bilingual</li>
+        <li>English — Professional Working Proficiency</li>
+        <li>French — Elementary</li>
+        <li>Marathi — Elementary</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section contact-section">
+  <div class="section-head">
+    <svg class="icon section-icon" width="20" height="20"><use href="#icon-mail"/></svg>
+    <span class="tag">08</span>
+    <h2>Get in Touch</h2>
+  </div>
+  <p class="lead">Open to research collaborations, quantum hardware/QEC roles, and interesting problems in fault-tolerant computing.</p>
+  <div class="contact-grid">
+    <a href="mailto:sumitchongder960@gmail.com" class="contact-item">
+      <svg class="icon contact-icon" width="20" height="20"><use href="#icon-mail"/></svg>
+      <span class="contact-label">Email</span>
+      <span class="contact-value">sumitchongder960@gmail.com</span>
+    </a>
+    <a href="tel:+917738915928" class="contact-item">
+      <svg class="icon contact-icon" width="20" height="20"><use href="#icon-phone"/></svg>
+      <span class="contact-label">Phone</span>
+      <span class="contact-value">+91 77389 15928</span>
+    </a>
+    <a href="https://www.linkedin.com/in/sumit-chongder/" target="_blank" rel="noopener" class="contact-item">
+      <svg class="icon contact-icon" width="20" height="20"><use href="#icon-linkedin"/></svg>
+      <span class="contact-label">LinkedIn</span>
+      <span class="contact-value">/in/sumit-chongder</span>
+    </a>
+    <a href="https://github.com/Sumitchongder" target="_blank" rel="noopener" class="contact-item">
+      <svg class="icon contact-icon" width="20" height="20"><use href="#icon-github"/></svg>
+      <span class="contact-label">GitHub</span>
+      <span class="contact-value">@Sumitchongder</span>
+    </a>
+  </div>
+  <a href="mailto:sumitchongder960@gmail.com" class="btn btn-primary magnetic contact-cta">Let's Build the Quantum Future — Say Hello</a>
+</section>
+
+</main>
+
+<footer>
+  <p>Designed &amp; built by Sumit Tapas Chongder · © <span id="year"></span></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
