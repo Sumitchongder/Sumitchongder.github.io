@@ -172,3 +172,4 @@ const spyIO = new IntersectionObserver((entries) => {
   });
 }, { rootMargin: '-45% 0px -45% 0px' });
 sections.forEach(s => spyIO.observe(s));
+
